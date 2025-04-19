@@ -1,0 +1,84 @@
+:root {
+    --color-0-bg: #013E43;
+    --color-1-bg: #005E77;
+    --color-2-bg: #0178A3;
+    --color-3-bg: #0290C2;
+    --color-4-bg: #05B7DD;
+    --color-5-bg: #689F38;
+    --color-6-bg: #547933;
+    --color-7-bg: #9C27B0;
+    --color-8-bg: #771c88;
+    --color-text: white;
+  }
+
+  .color-1 {
+    background-color: var(--color-1-bg);
+    color: var(--color-text);
+  }
+
+
+  .color-1:hover {
+    background-color: var(--color-0-bg);
+    text-decoration: none;
+  }
+  
+  .color-2 {
+    background-color: var(--color-2-bg);
+    color: var(--color-text);
+  }
+
+  .color-2:hover {
+    background-color: var(--color-1-bg);
+    text-decoration: none;
+  }
+  
+  .color-3 {
+    background-color: var(--color-3-bg);
+    color: var(--color-text);
+  }
+
+  .color-3:hover {
+    background-color: var(--color-2-bg);
+    text-decoration: none;
+  }
+  
+  .color-4 {
+    background-color: var(--color-4-bg);
+    color: var(--color-text);
+  }
+
+  .color-4:hover {
+    background-color: var(--color-3-bg);
+    text-decoration: none;
+  }
+
+  .color-5 {
+    background-color: var(--color-5-bg);
+    color: var(--color-text);
+  }
+
+  .color-5:hover {
+    background-color: var(--color-6-bg);
+    text-decoration: none;
+  }
+
+  .color-7 {
+    background-color: var(--color-7-bg);
+    color: var(--color-text);
+  }
+
+  .color-7:hover {
+    background-color: var(--color-8-bg);
+    text-decoration: none;
+  }
+
+
+  .text-custom-color {
+    color: #05B7DD !important;
+  }
+  
+  /* Opcional: estilo para quando passar o mouse */
+  .text-custom-color:hover {
+    color: #0290C2 !important;
+    text-decoration: none;
+  }

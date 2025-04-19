@@ -1,0 +1,42 @@
+{% load static %}
+<head> 
+  <link rel="stylesheet" href="{% static 'css/cores.css' %}">
+</head>
+<div class="card mt-4">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card color-1">
+            <div class="card-body">
+              <h5 class="card-title">Quantidade de pedidos</h5>
+              <p class="card-text text-white font-weight-bold fs-3">{{metricas_pedidos_venda.quantidade_pedidos}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card color-2">
+            <div class="card-body">
+              <h5 class="card-title">Custo dos pedidos</h5>
+              <p class="card-text text-white font-weight-bold fs-3">R$ {{metricas_pedidos_venda.custo_pedidos}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card color-3">
+            <div class="card-body">
+              <h5 class="card-title">Venda dos pedidos</h5>
+              <p class="card-text text-white font-weight-bold fs-3">R$ {{metricas_pedidos_venda.valor_pedidos}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card color-4">
+            <div class="card-body">
+              <h5 class="card-title">Ticket Médio dos pedidos</h5>
+              <p class="card-text text-white font-weight-bold fs-3">R$ {{metricas_pedidos_venda.ticket_medio}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

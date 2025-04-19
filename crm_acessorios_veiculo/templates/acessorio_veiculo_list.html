@@ -1,14 +1,17 @@
 {% extends 'crm.html' %}
+{% load static %}
 
 {% block title %}
 Intranet Matra - CRM
 {%  endblock %}
 
 {% block content %}
-
+<head> 
+    <link rel="stylesheet" href="{% static 'css/cores.css' %}">
+</head>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}" class="text-custom-color">Home</a></li>
       <li class="breadcrumb-item active" aria-current="page">Acessórios de Veiculo</li>
     </ol>
 </nav>  
@@ -33,15 +36,15 @@ Intranet Matra - CRM
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-search"></i> Filtrar
+                    <button type="submit" class="btn color-3">
+                        <i class="bi bi-funnel"></i> Filtrar
                     </button>
                     <a href="{% url 'acessorio_veiculo_list' %}" class="btn btn-secondary">
                         <i class="bi bi-x-circle"></i> Limpar Filtros
                     </a>
                     {% if perms.crm_acessorios_veiculo.add_acessoriosveiculo %}
-                        <a href="{% url 'acessorio_veiculo_create' %}" class="btn btn-success float-end">
-                            <i class="bi bi-plus"></i> Novo Acessório de Veículo
+                        <a href="{% url 'acessorio_veiculo_create' %}" class="btn color-1 float-end">
+                            <i class="bi bi-plus-circle"></i> Novo Acessório de Veículo
                         </a>
                     {% endif %}
                 </div>
@@ -74,17 +77,17 @@ Intranet Matra - CRM
                <td>{{acessorio_veiculo.descricao}} </td>
                <td>
                 {% if perms.crm_acessorios_veiculo.view_acessoriosveiculo %}
-                    <a href="{% url 'acessorio_veiculo_detail' acessorio_veiculo.id %}" class="btn btn-info btn-sm">
+                    <a href="{% url 'acessorio_veiculo_detail' acessorio_veiculo.id %}" class="btn color-3 btn-sm">
                         <i class="bi bi-search"></i>
                     </a>
                 {% endif %}
                 {% if perms.crm_acessorios_veiculo.change_acessoriosveiculo %}
-                    <a href="{% url 'acessorio_veiculo_update' acessorio_veiculo.id %}" class="btn btn-warning btn-sm">
+                    <a href="{% url 'acessorio_veiculo_update' acessorio_veiculo.id %}" class="btn color-5 btn-sm">
                         <i class="bi bi-pencil"></i>
                     </a>
                 {% endif %}
                 {% if perms.crm_acessorios_veiculo.delete_acessoriosveiculo %}
-                    <a href="{% url 'acessorio_veiculo_delete' acessorio_veiculo.id %}" class="btn btn-danger btn-sm">
+                    <a href="{% url 'acessorio_veiculo_delete' acessorio_veiculo.id %}" class="btn color-7 btn-sm">
                         <i class="bi bi-trash"></i>
                     </a>
                 {% endif %}

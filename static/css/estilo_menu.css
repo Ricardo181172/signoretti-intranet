@@ -1,72 +1,39 @@
-/* --- Sidebar Principal --- */
-/* Garante que o sidebar ocupe 100% da altura SEM scroll */
-.col-auto.col-md-3.col-xl-2.px-0.bg-dark {
-  height: 100vh;
-  overflow-y: hidden; /* Remove scroll global */
+/* Seus estilos existentes */
+
+/* Estilo para os links do menu */
+#menu li a {
+  color: #05B7DD !important;
+  transition: all 0.3s ease;
 }
 
-/* --- Container Interno do Sidebar --- */
-/* Permite scroll APENAS se o conteúdo for muito longo */
-.d-flex.flex-column.px-3.pt-2.text-white {
-  height: 100%;
+/* Estilo para quando passar o mouse sobre os links */
+#menu li a:hover {
+  color: #ffffff !important;
+  background-color: #05B7DD;
+  border-radius: 4px;
+  padding-left: 10px;
+}
+
+/* Estilo para os ícones */
+#menu li a i {
+  color: #05B7DD !important;
+  margin-right: 8px;
+}
+
+/* Estilo para os ícones ao passar o mouse */
+#menu li a:hover i {
+  color: #ffffff !important;
+}
+
+/* Estilo adicional para melhorar a aparência */
+#menu li {
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+#menu li a {
   display: flex;
-  flex-direction: column;
-  overflow-y: auto; /* Scroll apenas aqui */
-}
-
-/* --- Menus Colapsáveis --- */
-/* Remove qualquer overflow indesejado */
-#menuCollapse, #menuCollapse1 {
-  overflow: visible !important; 
-  max-height: none !important;
-}
-
-.dropdown-menu {
-  max-height: 300px; /* Ajuste conforme necessário */
-  overflow-y: auto;
-}
-
-/* --- Ajuste Fino para Mobile --- */
-@media (max-width: 767.98px) {
-  /* Quando collapse está ativo em mobile */
-  #menuCollapse.show, 
-  #menuCollapse1.show {
-      max-height: 70vh;
-      overflow-y: auto;
-  }
-}
-
-/* Garante comportamento consistente do scroll */
-.overflow-y-auto {
-  overflow-y: auto !important;
-  scrollbar-width: thin;
-}
-
-/* Estilização personalizada da barra de scroll */
-.overflow-y-auto::-webkit-scrollbar {
-  width: 6px;
-}
-
-.overflow-y-auto::-webkit-scrollbar-thumb {
-  background-color: rgba(255,255,255,0.2);
-  border-radius: 3px;
-}
-
-.nav .dropdown-item {
-  color: #6EA8F0 !important; /* Define a cor do texto para azul */
-}
-
-/* CSS para permitir scroll horizontal */
-.row {
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.col {
-  display: inline-block;
-  float: none; /* Remover float default */
-}
-
-.container-fluid {
-  overflow-x: auto;
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
 }
