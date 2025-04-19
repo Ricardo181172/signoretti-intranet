@@ -1,0 +1,31 @@
+{% extends 'crm.html' %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'area_cultura_list' %}">Áreas de Cultura</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Áreas de Cultura</li>
+    </ol>
+</nav>
+
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Detalhes da Área de Cultura</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Ano: {{object.ano}}</p>
+            <p class="card-text">Região: {{object.regiao}}</p>
+            <p class="card-text">Cultura: {{object.cultura}}</p>
+            <p class="card-text">Área: {{object.area}}</p>              
+        </div>
+        </div>
+    <a href="{% url 'area_cultura_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de áreas de cultura</a>
+</div>
+
+{% endblock %}

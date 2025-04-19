@@ -1,0 +1,34 @@
+{% extends 'crm.html' %}
+{% load modelos_filters %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'modelo_list' %}">Modelos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Modelos</li>
+    </ol>
+</nav>
+
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Detalhes do Modelo</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Descrição: {{object.descricao}}</p>
+            <p class="card-text">Marca: {{object.marca}}</p>
+            <p class="card-text">Cor: {{object.cor}}</p>
+            <p class="card-text">Família do Produto: {{object.familia_produto}}</p>
+            <p class="card-text">Custo Médio: {{object.custo_medio|floatformat:2|format_currency}}</p> 
+            <p class="card-text">Venda Média: {{object.venda_media|floatformat:2|format_currency}}</p>             
+        </div>
+    </div>
+    <a href="{% url 'modelo_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de modelos</a>
+</div>
+
+{% endblock %}

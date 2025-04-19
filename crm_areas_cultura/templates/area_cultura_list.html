@@ -1,0 +1,115 @@
+{% extends 'crm.html' %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Áreas de Cultura</li>
+    </ol>
+</nav>  
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h3 style="font-size: 1.2rem;">Filtros</h3>
+    </div>
+    <div class="card-body">
+        <form method="get" action="{% url 'area_cultura_list' %}" id="filtro-form">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="ano" class="form-label">Ano:</label>
+                    <input type="number" class="form-control" id="ano" name="ano" placeholder="Ano da cultura" value="{{ filtros.ano}}">
+                </div>
+                <div class="col-md-4">
+                    <label for="regiao" class="form-label">Região:</label>
+                    <input type="text" class="form-control" id="regiao" name="regiao" placeholder="Nome da Região" value="{{ filtros.regiao }}">
+                </div>
+                <div class="col-md-4">
+                    <label for="cultura" class="form-label">Cultura:</label>
+                    <input type="text" class="form-control" id="cultura" name="cultura" placeholder="Nome da cultura" value="{{ filtros.cultura }}">
+                </div>
+                    
+            </div>
+            <div class="row mb-3">
+                
+            </div>
+            <div class="row mb-3">
+               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-search"></i> Filtrar
+                    </button>
+                    <a href="{% url 'area_cultura_list' %}" class="btn btn-secondary">
+                        <i class="bi bi-x-circle"></i> Limpar Filtros
+                    </a>
+                    {% if perms.crm_areas_cultura.add_areacultura %}
+                        <a href="{% url 'area_cultura_create' %}" class="btn btn-success float-end">
+                            <i class="bi bi-plus"></i> Nova Área de Cultura
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Adicionar o contador de registros aqui -->
+<div class="d-flex justify-content-between align-items-center mb-2">
+    <div class="text-muted">
+        <strong>Total de registros encontrados:</strong> {{ total_registros }}
+    </div>
+    <div>
+        <!-- Você pode adicionar outros elementos aqui, como botões de exportação -->
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Ano</th>
+                <th>Região</th>                
+                <th>Cultura</th>
+                <th>Área</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for area_cultura in areas_cultura %}
+            <tr>
+               <td>{{area_cultura.ano}} </td>
+               <td>{{area_cultura.regiao}} </td>
+               <td>{{area_cultura.cultura}} </td>
+               <td>{{area_cultura.area}} </td>
+               <td>
+                {% if perms.crm_areas_cultura.view_areacultura %}
+                    <a href="{% url 'area_cultura_detail' area_cultura.id %}" class="btn btn-info btn-sm">
+                        <i class="bi bi-search"></i>
+                    </a>
+                {% endif %}
+                {% if perms.crm_areas_cultura.change_areacultura %}
+                    <a href="{% url 'area_cultura_update' area_cultura.id %}" class="btn btn-warning btn-sm">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                {% endif %}
+                {% if perms.crm_areas_cultura.delete_areacultura %}
+                    <a href="{% url 'area_cultura_delete' area_cultura.id %}" class="btn btn-danger btn-sm">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                {% endif %}
+               </td>
+            </tr>
+            {% endfor %}            
+        </tbody>
+    </table>
+</div>
+
+{% include 'components/_pagination.html' %}
+
+{% endblock %}

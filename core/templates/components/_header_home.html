@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark align-items-center">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <!-- Nome do sistema à esquerda -->
+    <span class="navbar-brand mb-0 h1">Intranet - Matra</span>
+    <!-- Botão de logout à direita -->
+    <li class="navbar-nav list-unstyled">
+      {% if user.is_authenticated %}
+      <form action="{% url 'logout' %}" method="post" id="logout-form" class="nav-link px-0 align-middle">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-link text-white text-decoration-none nav-link px-0 align-middle" style="color: #fff;">
+          <i class="bi bi-box-arrow-right fs-4 align-middle text-white"></i>
+          <span class="ms-1 align-middle">Sair</span>
+        </button>
+      </form>
+      {% endif %}
+    </li>    
+  </div>
+</nav>

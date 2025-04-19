@@ -1,0 +1,38 @@
+{% extends 'crm.html' %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'vendedor_list' %}">Vendedores</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Vendedores</li>
+    </ol>
+</nav>
+
+
+e_mail = models.EmailField(blank=True, null=True)
+    celular = models.CharField(blank=True, null=True, max_length=20)
+    usuario_crm = models.CharField(blank=True, null=True, max_length=20)
+    senha_crm = models.CharField(blank=True, null=True, max_length=20)
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Detalhes do Vendedor</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Nome: {{ object.nome}} {{object.sobrenome}}</p>
+            <p class="card-text">Loja: {{ object.emitente}}</p>
+            <p class="card-text">E-mail: {{ object.e_mail}}</p> 
+            <p class="card-text">Celular: {{ object.celular}}</p> 
+            <p class="card-text">Usuario CRM: {{ object.usuario_crm}}</p> 
+            <p class="card-text">Senha CRM: {{ object.senha_crm}}</p>           
+        </div>
+    </div>
+    <a href="{% url 'vendedor_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de vendedores</a>
+</div>
+
+{% endblock %}

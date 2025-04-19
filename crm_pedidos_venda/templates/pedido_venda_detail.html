@@ -1,0 +1,46 @@
+{% extends 'crm.html' %}
+{% load pedidos_venda_filters %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'pedido_venda_list' %}">Pedidos de Venda</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Pedidos de Venda</li>
+    </ol>
+</nav>
+
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Detalhes do Pedidos de Venda</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Emitente: {{object.emitente}}</p>
+            <p class="card-text">Cliente: {{object.cliente}}</p>
+            <p class="card-text">Veiculo: {{object.veiculo}}</p>
+            <p class="card-text">Vendedor: {{object.vendedor}}</p>
+            <p class="card-text">Status Negociação: {{object.status_negociacao}}</p>
+            <p class="card-text">Banco: {{object.banco}}</p>
+            <p class="card-text">Valor: {{object.valor|floatformat:2|format_currency}}</p>
+            <p class="card-text">Outras Receitas: {{object.outras_receitas|floatformat:2|format_currency}}</p>
+            <p class="card-text">Outras Despesas: {{object.outras_despesas|floatformat:2|format_currency}}</p>
+            <p class="card-text">Linha de Crédito: {{object.linha_credito}}</p>
+            <p class="card-text">Taxa Flat: {{object.taxa_flat}}</p>
+            <p class="card-text">Percentual Financiamento: {{object.porcent_financiamento}}</p>
+            <p class="card-text">Data Envio Proposta: {{object.data_envio_proposta|date:"d/m/Y"}}</p>
+            <p class="card-text">Data Aprovação: {{object.data_aprovacao|date:"d/m/Y"}}</p>
+            <p class="card-text">Data Recebimento: {{object.data_recebimento|date:"d/m/Y"}}</p>
+            <p class="card-text">Status Financimento: {{object.status_financiamento}}</p>
+            <p class="card-text">Observações: {{object.observacoes}}</p>   
+        </div>
+    </div>
+
+    <a href="{% url 'pedido_venda_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de pedidos de venda</a>
+</div>
+
+{% endblock %}

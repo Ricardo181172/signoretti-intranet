@@ -1,0 +1,43 @@
+{% extends 'crm.html' %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'cliente_list' %}">Clientes</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Clientes</li>
+    </ol>
+</nav>
+
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Detalhes do Cliente</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Emitente: {{object.emitente}}</p>
+            <p class="card-text">Nome: {{object.nome}}</p>
+            <p class="card-text">Cidade: {{object.cidade}}</p>
+            <p class="card-text">CPF/CNPJ: {{object.cpf_cnpj}}</p> 
+            <p class="card-text">Tipo Cliente: {{object.tipo_cliente}}</p>
+            <p class="card-text">Vendedor: {{object.vendedor}}</p>
+            <p class="card-text">Celular: {{object.celular}}</p>
+            <p class="card-text">E-mail: {{object.e_mail}}</p> 
+            <p class="card-text">Frota Total: {{object.frota_total}}</p>
+            <p class="card-text">Frota Ativa: {{object.frota_ativa}}</p>
+            <p class="card-text">Área Plantada: {{object.area_plantada}}</p>   
+            <p class="card-text">Status Relacionamento: {{object.status_relacionamento}}</p>
+            <p class="card-text">Temperatura: {{object.indicador_temperatura}}</p>
+            <p class="card-text">Categoria: {{object.categoria}}</p>            
+            <p class="card-text">Latitude: {{object.latitude}}</p>
+            <p class="card-text">Longitude: {{object.longitude}}</p>        
+        </div>
+    </div>
+    <a href="{% url 'cliente_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de clientes</a>
+</div>
+
+{% endblock %}

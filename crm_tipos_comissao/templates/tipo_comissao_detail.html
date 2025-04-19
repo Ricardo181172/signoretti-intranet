@@ -1,0 +1,28 @@
+{% extends 'crm.html' %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'tipo_comissao_list' %}">Tipos de Comissão</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Tipos de Comissão</li>
+    </ol>
+</nav>
+
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Detalhes do Tipo de Comissão</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Descrição: {{object.descricao}}</p>   
+        </div>
+    </div>
+    <a href="{% url 'tipo_comissao_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de tipos de comissão</a>
+</div>
+
+{% endblock %}

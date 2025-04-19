@@ -1,0 +1,30 @@
+{% extends 'crm.html' %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'empresa_list' %}">Empresas</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Empresas</li>
+    </ol>
+</nav>
+
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Detalhes da Empresa</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Empresa: {{object.nome}}</p>
+            <p class="card-text">Tipo Empresa: {{object.tipo_empresa}}</p>
+            <p class="card-text">Cidade: {{object.cidade}}</p>            
+        </div>
+    </div>
+    <a href="{% url 'empresa_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de empresas</a>
+</div>
+
+{% endblock %}

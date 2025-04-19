@@ -1,0 +1,29 @@
+{% extends 'crm.html' %}
+
+{% block title %}
+Intranet Matra - CRM
+{% endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'cidade_regiao_list' %}">Cidades da Região</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Cadastro de Cidades da Região</li>
+    </ol>
+</nav>
+
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Detalhes da Cidade da Região</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Cidade: {{object.cidade}}</p>
+            <p class="card-text">Região: {{object.regiao}}</p>
+        </div>
+    </div>
+    <a href="{% url 'cidade_regiao_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de cidades da região</a>
+</div>
+
+{% endblock %}

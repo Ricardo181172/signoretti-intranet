@@ -1,0 +1,105 @@
+{% extends 'crm.html' %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cidades da Região</li>
+    </ol>
+</nav>  
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h3 style="font-size: 1.2rem;">Filtros</h3>
+    </div>
+    <div class="card-body">
+        <form method="get" action="{% url 'cidade_regiao_list' %}" id="filtro-form">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="cidade" class="form-label">Cidade:</label>
+                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade" value="{{ filtros.cidade}}">
+                </div>
+                <div class="col-md-6">
+                    <label for="regiao" class="form-label">Região:</label>
+                    <input type="text" class="form-control" id="regiao" name="regiao" placeholder="Nome da Região" value="{{ filtros.regiao }}">
+                </div>            
+            </div>
+            <div class="row mb-3">
+                
+            </div>
+            <div class="row mb-3">
+               
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-search"></i> Filtrar
+                    </button>
+                    <a href="{% url 'cidade_regiao_list' %}" class="btn btn-secondary">
+                        <i class="bi bi-x-circle"></i> Limpar Filtros
+                    </a>
+                    {% if perms.crm_cidades_regiao.add_cidadesregiao %}
+                        <a href="{% url 'cidade_regiao_create' %}" class="btn btn-success float-end">
+                            <i class="bi bi-plus"></i> Nova Cidade da Região
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Adicionar o contador de registros aqui -->
+<div class="d-flex justify-content-between align-items-center mb-2">
+    <div class="text-muted">
+        <strong>Total de registros encontrados:</strong> {{ total_registros }}
+    </div>
+    <div>
+        <!-- Você pode adicionar outros elementos aqui, como botões de exportação -->
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Cidade</th>
+                <th>Região</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cidade_regiao in cidades_regiao %}
+            <tr>
+               <td>{{cidade_regiao.cidade}} </td>
+               <td>{{cidade_regiao.regiao}} </td>
+               <td>
+                {% if perms.crm_cidades_regiao.view_cidadesregiao %}
+                    <a href="{% url 'cidade_regiao_detail' cidade_regiao.id %}" class="btn btn-info btn-sm">
+                        <i class="bi bi-search"></i>
+                    </a>
+                {% endif %}
+                {% if perms.crm_cidades_regiao.change_cidadesregiao %}
+                    <a href="{% url 'cidade_regiao_update' cidade_regiao.id %}" class="btn btn-warning btn-sm">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                {% endif %}
+                {% if perms.crm_cidades_regiao.delete_cidadesregiao %}
+                    <a href="{% url 'cidade_regiao_delete' cidade_regiao.id %}" class="btn btn-danger btn-sm">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                {% endif %}
+            </tr>
+            {% endfor %}            
+        </tbody>
+    </table>
+</div>
+
+{% include 'components/_pagination.html' %}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'crm.html' %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'area_cultura_list' %}">Áreas de Cultura</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Áreas de Cultura</li>
+    </ol>
+</nav>
+
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Cadastrar Área de Cultura</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post" class="form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+    <a href="{% url 'area_cultura_list' %}" class="btn btn-secondary mt-3">Cancelar e voltar para a lista de áreas de cultura</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'crm.html' %}
+
+{% load static %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'empresa_list' %}">Empresas</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Empresas</li>
+    </ol>
+</nav>
+
+<div class="containermt-4">
+    <h3 style="font-size: 1.2rem;">Editar Empresa</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post" class="form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Salvar Empresa</button>
+            </form>
+        </div>
+    </div>
+    <a href="{% url 'empresa_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de empresas</a>
+</div>
+
+<!-- Inclua os scripts no final do bloco content -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/seletor_uf_cidade.js' %}"></script>
+
+{% endblock %}

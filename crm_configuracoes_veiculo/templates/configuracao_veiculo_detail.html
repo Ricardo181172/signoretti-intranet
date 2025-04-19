@@ -1,0 +1,31 @@
+{% extends 'crm.html' %}
+
+{% block title %}
+Intranet Matra - CRM
+{% endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'configuracao_veiculo_list' %}">Configurações de Veiculo</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Cadastro de Configurações de Veiculo</li>
+    </ol>
+</nav>
+
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Detalhes da Configuração de Veiculo</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Modelo: {{object.modelo}}</p>
+            <p class="card-text">Topcat: {{object.top_cat}}</p>
+            <p class="card-text">Acessório: {{object.acessorio}}</p>
+        </div>
+    </div>
+    <a href="{% url 'configuracao_veiculo_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de configurações
+        de veiculo</a>
+</div>
+
+{% endblock %}

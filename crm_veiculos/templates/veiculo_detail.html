@@ -1,0 +1,44 @@
+{% extends 'crm.html' %}
+{% load veiculos_filters %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'veiculo_list' %}">Veículos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Veículos</li>
+    </ol>
+</nav>
+
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Detalhes do Veículo</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Emitente: {{object.emitente}}</p>
+            <p class="card-text">Modelo: {{object.modelo}}</p>
+            <p class="card-text">Estado: {{object.estado}}</p>
+            <p class="card-text">Configuração: {{object.acessorio_veiculo}}</p>
+            <p class="card-text">Série: {{object.serie}}</p>
+            <p class="card-text">Chassi: {{object.chassi}}</p>
+            <p class="card-text">Valor Custo: {{object.valor_custo|floatformat:2|format_currency}}</p>
+            <p class="card-text">Valor Venda: {{object.valor_venda|floatformat:2|format_currency}}</p>
+            <p class="card-text">Situação: {{object.situacao}}</p>
+            <p class="card-text">Data Compra: {{object.data_compra|date:"d/m/Y"}}</p>
+            <p class="card-text">Data Quitação: {{object.data_quitacao|date:"d/m/Y"}}</p>
+            <p class="card-text">Data Pedido: {{object.data_pedido|date:"d/m/Y"}}</p>
+            <p class="card-text">Data Venda: {{object.data_venda|date:"d/m/Y"}}</p>
+            <p class="card-text">NF Compra: {{object.nf_compra}}</p> 
+            <p class="card-text">NF Venda: {{object.nf_venda}}</p>            
+        </div>
+    </div>
+    
+    <a href="{% url 'veiculo_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de veículos</a>
+</div>
+
+{% endblock %}

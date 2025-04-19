@@ -1,0 +1,52 @@
+{% extends 'crm.html' %}
+{% load static %}
+
+
+{% block title %}
+Intranet Matra - CRM
+{% endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'pedido_venda_list' %}">Pedidos de Venda</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Pedidos de Venda</li>
+    </ol>
+</nav>
+
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Cadastrar Pedido de Venda</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post" class="form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Salvar Pedido de Venda</button>
+            </form>
+        </div>
+    </div>
+    <a href="{% url 'pedido_venda_list' %}" class="btn btn-secondary mt-3">Cancelar e voltar para a lista de pedidos de venda</a>
+</div>
+
+<!-- Inclua os scripts no final do bloco content -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Defina essas variáveis com as URLs adequadas antes de carregar o seu arquivo script.js   
+    var ajaxLoadVeiculosUrl = '{% url "ajax_get_veiculos" %}';
+</script>
+<!-- Inclua os scripts no final do bloco content -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="{% static 'js/formata_data.js' %}"></script>
+<script src="{% static 'js/formata_valor.js' %}"></script>
+<script>
+    // Defina essas variáveis com as URLs adequadas antes de carregar o seu arquivo script.js   
+    var ajaxLoadVeiculosUrl = '{% url "ajax_get_veiculos" %}';
+    var veiculoAtualId = null; // Não há veículo atual em um novo pedido
+</script>
+<script src="{% static 'js/seletor_emitente_veiculo.js' %}"></script>
+
+{% endblock %}

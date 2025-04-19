@@ -1,0 +1,38 @@
+{% extends 'crm.html' %}
+
+{% load static %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'cidade_regiao_list' %}">Cidades da Região</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Cidades da Região</li>
+    </ol>
+</nav>
+
+<div class="containermt-4">
+    <h3 style="font-size: 1.2rem;">Editar Cidade da Região</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post" class="form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+    <a href="{% url 'cidade_regiao_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de áreas de cidades da região</a>
+</div>
+
+<!-- Inclua os scripts no final do bloco content -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/seletor_uf_cidade.js' %}"></script>
+
+{% endblock %}

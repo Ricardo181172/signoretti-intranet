@@ -1,0 +1,30 @@
+{% extends 'crm.html' %}
+
+{% block title %}
+Intranet Matra - CRM
+{%  endblock %}
+
+{% block content %}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'imposto_list' %}">Impostos</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Cadastro de Impostos</li>
+    </ol>
+</nav>
+
+<div class="container mt-4">
+    <h3 style="font-size: 1.2rem;">Detalhes do Imposto</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Descrição: {{object.descricao}}</p>
+            <p class="card-text">Incidência: {{object.incidencia}}</p>
+            <p class="card-text">Taxa: {{object.taxa}}</p>            
+        </div>
+    </div>
+    <a href="{% url 'imposto_list' %}" class="btn btn-secondary mt-3">Voltar para a lista de impostos</a>
+</div>
+
+{% endblock %}

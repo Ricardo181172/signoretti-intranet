@@ -1,0 +1,66 @@
+
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <!-- Sidebar -->
+    <div class="col-auto col-md-3 col-xl-2 px-0 bg-dark">
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
+        <button class="btn btn-dark d-block d-sm-none mb-3" type="button" data-bs-toggle="collapse"
+          data-bs-target="#menuCollapse" aria-expanded="false" aria-controls="menuCollapse">
+          <i class="bi bi-list fs-4"></i>
+        </button>
+        <div class="collapse d-sm-block" id="menuCollapse">
+          <ul class="nav flex-column align-items-start" id="menu">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle px-0 align-middle" href="#" id="euDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-card-list fs-5"></i>
+                <span class="ms-1">Cadastros</span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="euDropdown">
+                <li><a href="{% url 'acessorio_veiculo_list' %}" class="dropdown-item"><i class="bi bi-ui-radios-grid fs-5"></i> Acessórios de Veiculo</a></li>
+                <li><a href="{% url 'area_cultura_list' %}" class="dropdown-item"><i class="bi bi-geo-fill fs-5"></i> Áreas de Cultura</a></li>
+                <li><a href="{% url 'cidade_regiao_list' %}" class="dropdown-item"><i class="bi bi-three-dots-vertical fs-5"></i> Cidades da Região</a></li>
+                <li><a href="{% url 'cliente_list' %}" class="dropdown-item"><i class="bi bi-people fs-5"></i> Clientes</a></li>
+                <li><a href="{% url 'condicao_pagamento_list' %}" class="dropdown-item"><i class="bi bi-credit-card fs-5"></i> Condições de Pagamento</a></li>
+                <li><a href="{% url 'configuracao_veiculo_list' %}" class="dropdown-item"><i class="bi bi-toggles fs-5"></i> Configurações de Veiculo</a></li>
+                <li><a href="{% url 'cultura_list' %}" class="dropdown-item"><i class="bi bi-cloud-rain fs-5"></i> Culturas</a></li>
+                <li><a href="{% url 'emitente_list' %}" class="dropdown-item"><i class="bi bi-house fs-5"></i> Emitentes</a></li>
+                <li><a href="{% url 'empresa_list' %}" class="dropdown-item"><i class="bi bi-building fs-5"></i> Empresas</a></li>
+                <li><a href="{% url 'familia_produto_list' %}" class="dropdown-item"><i class="bi bi-ui-checks fs-5"></i> Familias de Produto</a></li>
+                <li><a href="{% url 'imposto_list' %}" class="dropdown-item"><i class="bi bi-receipt fs-5"></i> Impostos</a></li>
+                <li><a href="{% url 'marca_list' %}" class="dropdown-item"><i class="bi bi-card-checklist fs-5"></i> Marcas</a></li>
+                <li><a href="{% url 'meta_list' %}" class="dropdown-item"><i class="bi bi-crosshair fs-5"></i> Metas</a></li>
+                <li><a href="{% url 'modelo_list' %}" class="dropdown-item"><i class="bi bi-ui-radios fs-5"></i> Modelos</a></li>
+                <li><a href="{% url 'produto_list' %}" class="dropdown-item"><i class="bi bi-ui-checks-grid fs-5"></i> Produtos</a></li>
+                <li><a href="{% url 'pedido_venda_list' %}" class="dropdown-item"><i class="bi bi-clipboard2-check fs-5"></i> Pedidos de Venda</a></li>
+                <li><a href="{% url 'regiao_list' %}" class="dropdown-item"><i class="bi bi-geo-alt fs-5"></i> Regiões</a></li>
+                <li><a href="{% url 'tipo_comissao_list' %}" class="dropdown-item"><i class="bi bi-table fs-5"></i> Tipos de Comissão</a></li>
+                <li><a href="{% url 'tipo_meta_list' %}" class="dropdown-item"><i class="bi bi-speedometer2 fs-5"></i> Tipos de Meta</a></li>
+                <li><a href="{% url 'tipo_venda_list' %}" class="dropdown-item"><i class="bi bi-upc fs-5"></i> Tipos de Venda</a></li>
+                <li><a href="{% url 'veiculo_list' %}" class="dropdown-item"><i class="bi bi-car-front fs-5"></i> Veiculos</a></li>
+                <li><a href="{% url 'venda_list' %}" class="dropdown-item"><i class="bi bi-currency-dollar fs-5"></i> Vendas</a></li>
+                <li><a href="{% url 'vendedor_list' %}" class="dropdown-item"><i class="bi bi-person-gear fs-5"></i> Vendedores</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>       
+        <div class="collapse d-sm-block" id="menuCollapse1">
+          <ul class="nav flex-column align-items-start" id="menu">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle px-0 align-middle" href="#" id="cadastroDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-speedometer fs-5"></i>
+                <span class="ms-1">Indicadores</span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="cadastroDropdown">
+                <li><a href="{% url 'area_cultura_list' %}" class="dropdown-item"><i class="bi bi-geo-fill fs-5"></i>Áreas de Cultura</a></li>
+                <li><a href="{% url 'cidade_regiao_list' %}" class="dropdown-item"><i class="bi bi-three-dots-vertical fs-5"></i>Cidades da Região</a></li>
+                <li><a href="{% url 'cliente_list' %}" class="dropdown-item"><i class="bi bi-people fs-5"></i>Clientes</a></li>
+                <li><a href="{% url 'condicao_pagamento_list' %}" class="dropdown-item"><i class="bi bi-credit-card fs-5"></i>Condições de Pagamento</a></li>
+                <li><a href="{% url 'cultura_list' %}" class="dropdown-item"><i class="bi bi-cloud-rain fs-5"></i>Culturas</a></li>
+                <li><a href="{% url 'emitente_list' %}" class="dropdown-item"><i class="bi bi-house fs-5"></i>Emitentes</a></li>                
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <hr>
+      </div>
+    </div>
