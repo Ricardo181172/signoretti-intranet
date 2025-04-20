@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.http import JsonResponse
+from core import metricas
 from crm_veiculos.models import Veiculos
 from .forms import PedidoVendaForm
 from . import forms
@@ -64,6 +65,9 @@ class PedidoVendaListView(LoginRequiredMixin, PermissionRequiredMixin, ListView)
         # Corrigir o nome da variável para corresponder ao que o template espera
         context['status_financiamento_choices'] = PedidoVendaForm.STATUS_FINANCIAMENTO_CHOICES
         context['status_negociacao_choices'] = PedidoVendaForm.STATUS_NEGOCIACAO_CHOICES
+
+        #adiciona as metricas do painel
+        context['metricas_pedidos_venda'] = metricas.get_metricas_pedidos_venda
 
         context['total_registros'] = self.get_queryset().count()
         

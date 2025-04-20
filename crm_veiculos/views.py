@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.db.models import Q
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.http import JsonResponse
+from core import metricas
 from . import forms
 from . import models
 
@@ -63,6 +64,9 @@ class VeiculoListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
         from .forms import VeiculoForm
         context['estado_choices'] = VeiculoForm.ESTADO_CHOICES
         context['situacao_choices'] = VeiculoForm.SITUACAO_CHOICES
+        
+        #adiciona as metricas do painel
+        context['metricas_veiculos'] = metricas.get_metricas_veiculos
         
         # Adicionar o total de registros
         context['total_registros'] = self.get_queryset().count()

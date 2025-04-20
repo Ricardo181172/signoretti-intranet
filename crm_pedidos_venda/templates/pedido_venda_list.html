@@ -6,8 +6,11 @@
 Intranet Matra - CRM
 {% endblock %}
 
-{% block content %}
+{% block content %}{% include 'components/_metricas_pedidos_venda.html' %}
+
 <link rel="stylesheet" href="{% static 'css/cores.css' %}">
+
+<div class="mb-4"></div>
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
