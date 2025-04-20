@@ -1,14 +1,16 @@
 {% extends 'crm.html' %}
+{% load static %}
 
 {% block title %}
 Intranet Matra - CRM
 {%  endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/cores.css' %}">
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}" class="text-custom-color">Home</a></li>
       <li class="breadcrumb-item active" aria-current="page">Tipos de Venda</li>
     </ol>
 </nav>
@@ -33,15 +35,13 @@ Intranet Matra - CRM
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-search"></i> Filtrar
-                    </button>
+                    <button type="submit" class="btn color-3"><i class="bi bi-funnel"></i> Filtrar</button>
                     <a href="{% url 'tipo_venda_list' %}" class="btn btn-secondary">
                         <i class="bi bi-x-circle"></i> Limpar Filtros
                     </a>
-                    {% if perms.crm_tipos_venda.add.tiposvenda %}
-                        <a href="{% url 'tipo_venda_create' %}" class="btn btn-success float-end">
-                            <i class="bi bi-plus"></i> Novo Tipo de Venda
+                    {% if perms.crm_tipos_meta.add_tiposmeta %}
+                        <a href="{% url 'tipo_venda_create' %}" class="btn color-1 float-end">
+                            <i class="bi bi-plus-circle"></i> Novo Tipo de Venda
                         </a>
                     {% endif %}
                 </div>
@@ -74,17 +74,17 @@ Intranet Matra - CRM
                <td>{{tipo_venda.descricao}} </td>
                <td>
                 {% if perms.crm_tipos_venda.view.tiposvenda %}
-                    <a href="{% url 'tipo_venda_detail' tipo_venda.id %}" class="btn btn-info btn-sm">
+                    <a href="{% url 'tipo_venda_detail' tipo_venda.id %}" class="btn color-3 btn-sm">
                         <i class="bi bi-search"></i>
                     </a>
                 {% endif %}
                 {% if perms.crm_tipos_venda.change.tiposvenda %}
-                    <a href="{% url 'tipo_venda_update' tipo_venda.id %}" class="btn btn-warning btn-sm">
+                    <a href="{% url 'tipo_venda_update' tipo_venda.id %}" class="btn color-5 btn-sm">
                         <i class="bi bi-pencil"></i>
                     </a>
                 {% endif %}
                 {% if perms.crm_tipos_venda.delete.tiposvenda %}
-                    <a href="{% url 'tipo_venda_delete' tipo_venda.id %}" class="btn btn-danger btn-sm">
+                    <a href="{% url 'tipo_venda_delete' tipo_venda.id %}" class="btn color-7 btn-sm">
                         <i class="bi bi-trash"></i>
                     </a>
                 {% endif %}

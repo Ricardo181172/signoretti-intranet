@@ -7,10 +7,11 @@ Intranet Matra - CRM
 {%  endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/cores.css' %}">
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}" class="text-custom-color">Home</a></li>
       <li class="breadcrumb-item active" aria-current="page">Veículos</li>
     </ol>
 </nav>
@@ -60,15 +61,13 @@ Intranet Matra - CRM
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-search"></i> Filtrar
-                    </button>
+                    <button type="submit" class="btn color-3"><i class="bi bi-funnel"></i> Filtrar</button>
                     <a href="{% url 'veiculo_list' %}" class="btn btn-secondary">
                         <i class="bi bi-x-circle"></i> Limpar Filtros
                     </a>
                     {% if perms.crm_veiculos.add_veiculos %}
-                        <a href="{% url 'veiculo_create' %}" class="btn btn-success float-end">
-                            <i class="bi bi-plus"></i> Novo Veículo
+                        <a href="{% url 'veiculo_create' %}" class="btn color-1 float-end">
+                            <i class="bi bi-plus-circle"></i> Novo Veículo
                         </a>
                     {% endif %}
                 </div>
@@ -123,17 +122,17 @@ Intranet Matra - CRM
                <td>{% if veiculo.data_venda %}{{ veiculo.data_venda|date:"d/m/Y" }}{% endif %}</td>
                <td>
                 {% if perms.crm_veiculos.view_veiculos %}
-                    <a href="{% url 'veiculo_detail' veiculo.id %}" class="btn btn-info btn-sm">
+                    <a href="{% url 'veiculo_detail' veiculo.id %}" class="btn color-3 btn-sm">
                         <i class="bi bi-search"></i>
                     </a>
                 {% endif %}
                 {% if perms.crm_veiculos.change_veiculos %}
-                    <a href="{% url 'veiculo_update' veiculo.id %}" class="btn btn-warning btn-sm">
+                    <a href="{% url 'veiculo_update' veiculo.id %}" class="btn color-5 btn-sm">
                         <i class="bi bi-pencil"></i>
                     </a>
                 {% endif %}
                 {% if perms.crm_veiculos.delete_veiculos %}
-                    <a href="{% url 'veiculo_delete' veiculo.id %}" class="btn btn-danger btn-sm">
+                    <a href="{% url 'veiculo_delete' veiculo.id %}" class="btn color-7 btn-sm">
                         <i class="bi bi-trash"></i>
                     </a>
                 {% endif %}

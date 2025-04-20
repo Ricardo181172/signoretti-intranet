@@ -1,15 +1,17 @@
 {% extends 'crm.html' %}
+{% load static %}
 
 {% block title %}
 Intranet Matra - CRM
 {%  endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/cores.css' %}">
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'venda_list' %}">Vendas</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}" class="text-custom-color">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'venda_list' %}" class="text-custom-color">Vendas</a></li>
       <li class="breadcrumb-item active" aria-current="page">Cadastro de Vendas</li>
     </ol>
 </nav>

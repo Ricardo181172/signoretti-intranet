@@ -1,4 +1,5 @@
 {% extends 'crm.html' %}
+{% load static %}
 {% load metas_filters %}
 
 {% block title %}
@@ -6,11 +7,12 @@ Intranet Matra - CRM
 {%  endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/cores.css' %}">
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'meta_list' %}">Metas</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}" class="text-custom-color">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'meta_list' %}" class="text-custom-color">Metas</a></li>
       <li class="breadcrumb-item active" aria-current="page">Cadastro de Metas</li>
     </ol>
 </nav>

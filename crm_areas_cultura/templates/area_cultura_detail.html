@@ -1,15 +1,17 @@
 {% extends 'crm.html' %}
+{% load static %}
 
 {% block title %}
 Intranet Matra - CRM
 {%  endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/cores.css' %}">
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'area_cultura_list' %}">Áreas de Cultura</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-custom-color">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'area_cultura_list' %}" class="text-custom-color">Áreas de Cultura</a></li>
       <li class="breadcrumb-item active" aria-current="page">Cadastro de Áreas de Cultura</li>
     </ol>
 </nav>

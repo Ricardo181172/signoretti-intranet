@@ -1,15 +1,17 @@
 {% extends 'crm.html' %}
+{% load static %}
 
 {% block title %}
 Intranet Matra - CRM
 {% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/cores.css' %}">
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Configurações de Veiculo</li>
+        <li class="breadcrumb-item"><a href="{% url 'crm' %}" class="text-custom-color">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page" class="text-custom-color">Configurações de Veiculo</li>
     </ol>
 </nav>
 
@@ -43,15 +45,13 @@ Intranet Matra - CRM
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-search"></i> Filtrar
-                    </button>
+                    <button type="submit" class="btn color-3"><i class="bi bi-funnel"></i> Filtrar</button>
                     <a href="{% url 'configuracao_veiculo_list' %}" class="btn btn-secondary">
                         <i class="bi bi-x-circle"></i> Limpar Filtros
                     </a>
-                    {% if perms.crm_configuracoes_veiculo.add_configuracoesveiculo %}
-                        <a href="{% url 'configuracao_veiculo_create' %}" class="btn btn-success float-end">
-                            <i class="bi bi-plus"></i> Nova Configuração de Veículo
+                    {% if perms.crm_clientes.add_clientes %}
+                        <a href="{% url 'configuracao_veiculo_create' %}" class="btn color-1 float-end">
+                            <i class="bi bi-plus-circle"></i> Nova Configuração de Veículo
                         </a>
                     {% endif %}
                 </div>
@@ -90,19 +90,19 @@ Intranet Matra - CRM
                 <td>
                     {% if perms.crm_configuracoes_veiculo.view_configuracoesveiculo %}
                         <a href="{% url 'configuracao_veiculo_detail' configuracao_veiculo.id %}"
-                            class="btn btn-info btn-sm">
+                            class="btn color-3 btn-sm">
                             <i class="bi bi-search"></i>
                         </a>
                     {% endif %}
                     {% if perms.crm_configuracoes_veiculo.change_configuracoesveiculo %}
                         <a href="{% url 'configuracao_veiculo_update' configuracao_veiculo.id %}"
-                            class="btn btn-warning btn-sm">
+                            class="btn color-5 btn-sm">
                             <i class="bi bi-pencil"></i>
                         </a>
                     {% endif %}
                     {% if perms.crm_configuracoes_veiculo.delete_configuracoesveiculo %}
                         <a href="{% url 'configuracao_veiculo_delete' configuracao_veiculo.id %}"
-                            class="btn btn-danger btn-sm">
+                            class="btn color-7 btn-sm">
                             <i class="bi bi-trash"></i>
                         </a>
                     {% endif %}

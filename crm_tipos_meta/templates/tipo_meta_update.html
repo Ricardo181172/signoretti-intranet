@@ -1,15 +1,17 @@
 {% extends 'crm.html' %}
+{% load static %}
 
 {% block title %}
 Intranet Matra - CRM
 {%  endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/cores.css' %}">
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'tipo_meta_list' %}">Tipos de Meta</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}" class="text-custom-color">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'tipo_meta_list' %}" class="text-custom-color">Tipos de Meta</a></li>
       <li class="breadcrumb-item active" aria-current="page">Cadastro de Tipos de Meta</li>
     </ol>
 </nav>
@@ -22,7 +24,7 @@ Intranet Matra - CRM
             <form method="post" class="form">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Salvar Tipo de Meta</button>
+                <button type="submit" class="btn color-5"><i class="bi bi-floppy"></i> Salvar</button>
             </form>
         </div>
     </div>

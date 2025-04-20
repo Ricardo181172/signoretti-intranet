@@ -7,11 +7,12 @@ Intranet Matra - CRM
 {% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/cores.css' %}">
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'pedido_venda_list' %}">Pedidos de Venda</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}" class="text-custom-color">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'pedido_venda_list' %}" class="text-custom-color">Pedidos de Venda</a></li>
       <li class="breadcrumb-item active" aria-current="page">Cadastro de Pedidos de Venda</li>
     </ol>
 </nav>
@@ -24,7 +25,9 @@ Intranet Matra - CRM
             <form method="post" class="form">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Salvar Pedido de Venda</button>
+                <button type="submit" class="btn color-3">
+                    <i class="bi bi-floppy"></i> Salvar
+                </button>
             </form>
         </div>
     </div>

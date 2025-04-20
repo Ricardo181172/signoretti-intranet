@@ -1,15 +1,17 @@
 {% extends 'crm.html' %}
+{% load static %}
 
 {% block title %}
 Intranet Matra - CRM
 {%  endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/cores.css' %}">
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Emitentes</li>
+      <li class="breadcrumb-item"><a href="{% url 'crm' %}" class="text-custom-color">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page" class="text-custom-color">Emitentes</li>
     </ol>
 </nav>
   
@@ -42,15 +44,13 @@ Intranet Matra - CRM
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-search"></i> Filtrar
-                    </button>
+                    <button type="submit" class="btn color-3"><i class="bi bi-funnel"></i> Filtrar</button>
                     <a href="{% url 'emitente_list' %}" class="btn btn-secondary">
                         <i class="bi bi-x-circle"></i> Limpar Filtros
                     </a>
                     {% if perms.crm_emitentes.add_emitentes %}
-                        <a href="{% url 'emitente_create' %}" class="btn btn-success float-end">
-                            <i class="bi bi-plus"></i> Novo Emitente
+                        <a href="{% url 'emitente_create' %}" class="btn color-1 float-end">
+                            <i class="bi bi-plus-circle"></i> Novo Emitente
                         </a>
                     {% endif %}
                 </div>
@@ -77,17 +77,17 @@ Intranet Matra - CRM
                <td>{{ emitente.cidade }} </td>
                <td>
                 {% if perms.crm_emitentes.view_emitentes %}                
-                    <a href="{% url 'emitente_detail' emitente.id %}" class="btn btn-info btn-sm">
+                    <a href="{% url 'emitente_detail' emitente.id %}" class="btn color-3 btn-sm">
                         <i class="bi bi-search"></i>
                     </a>
                 {% endif %}
                 {% if perms.crm_emitentes.change_emitentes %}
-                    <a href="{% url 'emitente_update' emitente.id %}" class="btn btn-warning btn-sm">
+                    <a href="{% url 'emitente_update' emitente.id %}" class="btn color-5 btn-sm">
                         <i class="bi bi-pencil"></i>
                     </a>
                 {% endif %}
                 {% if perms.crm_emitentes.delete_emitentes %}
-                    <a href="{% url 'emitente_delete' emitente.id %}" class="btn btn-danger btn-sm">
+                    <a href="{% url 'emitente_delete' emitente.id %}" class="btn color-7 btn-sm">
                         <i class="bi bi-trash"></i>
                     </a>
                 {% endif %}

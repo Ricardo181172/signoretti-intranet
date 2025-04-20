@@ -1,15 +1,17 @@
 {% extends 'crm.html' %}
+{% load static %}
 
 {% block title %}
 Intranet Matra - CRM
 {%  endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/cores.css' %}">
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'crm' %}">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Áreas de Cultura</li>
+      <li class="breadcrumb-item"><a href="{% url 'crm' %} class="text-custom-color">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page" class="text-custom-color">Áreas de Cultura</li>
     </ol>
 </nav>  
 
@@ -42,15 +44,15 @@ Intranet Matra - CRM
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-search"></i> Filtrar
+                    <button type="submit" class="btn color-3">
+                        <i class="bi bi-funnel"></i> Filtrar
                     </button>
                     <a href="{% url 'area_cultura_list' %}" class="btn btn-secondary">
                         <i class="bi bi-x-circle"></i> Limpar Filtros
                     </a>
-                    {% if perms.crm_areas_cultura.add_areacultura %}
-                        <a href="{% url 'area_cultura_create' %}" class="btn btn-success float-end">
-                            <i class="bi bi-plus"></i> Nova Área de Cultura
+                    {% if perms.crm_acessorios_veiculo.add_acessoriosveiculo %}
+                        <a href="{% url 'area_cultura_create' %}" class="btn color-1 float-end">
+                            <i class="bi bi-plus-circle"></i> Nova Área de Cultura
                         </a>
                     {% endif %}
                 </div>
@@ -89,17 +91,17 @@ Intranet Matra - CRM
                <td>{{area_cultura.area}} </td>
                <td>
                 {% if perms.crm_areas_cultura.view_areacultura %}
-                    <a href="{% url 'area_cultura_detail' area_cultura.id %}" class="btn btn-info btn-sm">
+                    <a href="{% url 'area_cultura_detail' area_cultura.id %}" class="btn color-3 btn-sm">
                         <i class="bi bi-search"></i>
                     </a>
                 {% endif %}
                 {% if perms.crm_areas_cultura.change_areacultura %}
-                    <a href="{% url 'area_cultura_update' area_cultura.id %}" class="btn btn-warning btn-sm">
+                    <a href="{% url 'area_cultura_update' area_cultura.id %}" class="btn color-5 btn-sm">
                         <i class="bi bi-pencil"></i>
                     </a>
                 {% endif %}
                 {% if perms.crm_areas_cultura.delete_areacultura %}
-                    <a href="{% url 'area_cultura_delete' area_cultura.id %}" class="btn btn-danger btn-sm">
+                    <a href="{% url 'area_cultura_delete' area_cultura.id %}" class="btn color-7 btn-sm">
                         <i class="bi bi-trash"></i>
                     </a>
                 {% endif %}
